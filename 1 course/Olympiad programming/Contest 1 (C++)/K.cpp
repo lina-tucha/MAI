@@ -11,5 +11,5 @@ int main() {
 	if (b1 % b2 == 0) b3 = b1 / b2; 
     else b3 = b1 / b2 + 1;
     cout << a3 * b3;
-	return 0; 
+    return 0; 
 }
