@@ -3,7 +3,7 @@
 ### Department 806: "Computational Mathematics and Programming"
 Educational materials, labs, etc.
 
-Useful materials: https://drive.google.com/drive/folders/1ZTiLH73cQv4pIOVmJvVvc66fYbB0wId1
+Useful materials: https://drive.google.com/drive/folders/1ZTiLH73cQv4pIOVmJvVvc66fYbB0wId1, https://drive.google.com/drive/folders/1ce3Zp3_0Rz6i9gCnOapfzFf9MskNv3k_
 
 Useful github: https://github.com/tutkarma/mai_study/
 
