@@ -1,0 +1,9 @@
+1 
+pentagon 0 0 0 6 
+1 
+hexagon 0 0 0 6 
+1 
+octagon 0 1 0 0 
+1 
+pentagon 0 0 0 1 
+2

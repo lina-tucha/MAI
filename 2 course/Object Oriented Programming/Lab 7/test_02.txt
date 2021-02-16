@@ -1,0 +1,26 @@
+1 
+file 
+4 
+pentagon 0 0 0 6 
+4 
+hexagon 0 0 0 6 
+4 
+octagon 0 0 0 6 
+6 
+5 
+1 
+2 
+1 
+file1 
+4 
+hexagon 0 0 0 1 
+6 
+3 
+file 
+6 
+4 
+octagon 0 0 0 1 
+6 
+7 
+6 
+8
