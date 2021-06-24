@@ -1,0 +1,166 @@
+Лабораторная работа №7
+Хренникова Ангелина 
+Вариант №8
+
+In[13]:= fSRC := -6 * x * y + 4 * y * z + 3 * z ^ 2 - x - y + z - 10
+TraditionalForm[fSRC]
+
+Out[14]=
+
+In[15]:= A = {
+{0, -3, 0},
+{-3, 0, 2},
+{0, 2, 3}
+};
+MatrixForm[A]
+
+Out[16]=
+
+In[17]:= (*Матричное уравнение*)
+l=.
+AE = A - IdentityMatrix[3] * l;
+MatrixForm[AE]
+
+Out[19]=
+
+In[21]:= myCharPoly = Det[AE]
+
+Out[21]= 
+
+In[22]:= wolframCharPoly = CharacteristicPolynomial[A,l]
+
+Out[22]= 
+
+In[23]:= (*Проверка равенства характеристических уравнений*)
+FullSimplify[myCharPoly == wolframCharPoly]
+
+Out[23]= True
+
+In[105]:= (*Собственные значения*)
+sol = Solve[myCharPoly ==0, l]
+
+Out[105]= 
+
+In[25]:= myEigenVals = l/.sol
+
+Out[25]= 
+
+In[26]:= %//N
+
+Out[26]= {-3.33241,1.77962,4.5528}
+
+In[106]:= (*Проверка собственных значений*)
+wolframEigenVals =Eigenvalues[A];
+Sort[myEigenVals] == Sort[wolframEigenVals]
+
+Out[107]= True
+
+In[79]:= X = {x, y, z};
+myD1 = AE/.l -> myEigenVals[[1]];
+myD1.X//MatrixForm
+myZ1 = myD1.X
+myD2 = AE/.l -> myEigenVals[[2]];
+myD2.X//MatrixForm
+myZ2 = myD2.X
+myD3 = AE/.l -> myEigenVals[[3]];
+myD3.X//MatrixForm
+myZ3 = myD3.X
+
+Out[81]=
+
+Out[82]= 
+
+Out[84]= 
+
+Out[85]= 
+
+Out[87]=
+
+Out[88]= 
+
+In[89]:= myEigenVec1 =Solve[myZ1 == 0 /. z ->1]
+myEigenVec1 = {x, y, 1}/.myEigenVec1[[1]]
+myEigenVec2 =Solve[myZ2 == 0 /. z ->1]
+myEigenVec2 = {x, y, 1}/.myEigenVec2[[1]]
+myEigenVec3 =Solve[myZ3 == 0 /. z ->1]
+myEigenVec3 = {x, y, 1}/.myEigenVec3[[1]]
+
+Out[89]= 
+
+Out[90]= 
+
+Out[91]= 
+
+Out[92]= 
+
+Out[93]= 
+
+Out[94]= 
+
+In[108]:= (*В первом списке - собственные числа, дальше последовательные вектора для каждого из этих чисел.*)
+wolframEigenSys = Eigensystem[A]
+
+Out[108]= 
+
+In[95]:= myEigenVals[[1]]
+myEigenVals[[2]]
+myEigenVals[[3]]
+
+Out[95]= 
+
+Out[96]= 
+
+Out[97]= 
+
+In[98]:= (*Проверка собственных векторов*)
+wolframEigenSys[[2,2]] ==N[myEigenVec1]
+wolframEigenSys[[2,3]] ==N[myEigenVec2]
+wolframEigenSys[[2,1]] ==N[myEigenVec3]
+
+Out[98]= True
+
+Out[99]= True
+
+Out[100]= True
+
+In[109]:= (*Нормализация вектора*)
+Normalize[myEigenVec1]
+
+Out[109]= 
+
+In[110]:= (*Нормализация квадратичной формы*)
+S = {Normalize[wolframEigenSys[[2, 1]]]
+ ,Normalize[wolframEigenSys[[2,2]]]
+ , Normalize[wolframEigenSys[[2,3]]]
+};
+(*Матрица перехода в канонический базис*)
+N[S]//MatrixForm
+
+Out[111]=
+
+In[47]:= a = {-1,-1,1};
+a1 = Transpose[S].a;
+p = wolframEigenSys[[1,1]]*x1^2 + wolframEigenSys[[1,2]]*y1^2 + wolframEigenSys[[1,3]]*z1^2 +2 * a1[[1]] * x1 + 2 * a1[[2]] * y1 + 2 * a1[[3]]*z1 - 10;
+p = FullSimplify[p];
+N[p]//TraditionalForm
+p/.{x1 ->x, y1->y, z1->z}
+
+Out[51]=
+
+Out[52]= 
+
+In[58]:= x=.
+y=.
+z=.
+ft[a_,b_,c_]:=p/.{x1->a,y1->b,z1->c}
+ContourPlot3D[ft[x,y,z]==0, {x,-10,10}, {y, -10,10}, {z,-10,10}]
+
+Out[62]= график
+
+In[102]:= p
+
+Out[102]= 
+
+In[66]:= fSRC[x,y,z]
+
+Out[66]= 

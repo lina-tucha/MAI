@@ -1,0 +1,47 @@
+Лабоаторная работа №6
+Хренникова Ангелина
+
+In[76]:=   interfunc[x_, a_, b_, c_, d_]:= Module[
+    {
+        sol,
+        eq1,
+        eq2,
+        t
+    },
+    
+    eq1[t_] := x'[t] == x[t] * (a - b * y[t]);
+    eq2[t_] := y'[t] == y[t] * (-c + d * x[t]);
+    
+    sol = NDSolve[
+        {
+            eq1[t], 
+            eq2[t], 
+            x[0] == 2, 
+            y[0] == 1 
+        },
+        {x, y},
+        {t, 0, 7},
+        MaxSteps -> 3000
+    ];
+    
+    dataset = Table[
+        {x[t], y[t]} /. sol[[1]],
+        {t, 0, 7, 0.1}
+    ];
+    
+    ListPlot[dataset, Joined->True, PlotRange->All,ImageSize->500]
+]
+
+In[77]:= cMinVal = 1;
+cMaxVal = 10;
+cValStep = 1;
+Manipulate[
+    interfunc[x, a, b, c, d],
+  
+    {a, cMinVal, cMaxVal, cValStep},
+    {b, cMinVal, cMaxVal, cValStep},
+    {c, cMinVal, cMaxVal, cValStep},
+    {d, cMinVal, cMaxVal, cValStep}
+]
+
+Out[80]= 

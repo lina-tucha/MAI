@@ -1,0 +1,76 @@
+Лабораторная работа №5
+Хренникова Ангелина 
+Вариант №3
+
+In[1]:= f = 126*x^6 - 54*x^5 - 28*x^3 + 12*x^2 + 14*x - 6
+g = -42*x^5 + 39*x^4 - 9*x^3 - 189*x + 81
+
+Out[1]= 
+
+Out[2]= 
+
+In[3]:= f//TraditionalForm
+g//TraditionalForm
+
+Out[3]=
+
+Out[4]=
+
+In[5]:= myBezoutPoly[aa_, bb_]:=Module[
+			{a=aa, b=bb
+				, x0=1
+				, xx=0
+				, y0=0
+				, yy = 1
+				, q, r
+			}
+			,
+            While[
+				Not[SameQ[b, 0]]
+				,
+					q = PolynomialQuotient[a, b,x];
+					r = PolynomialRemainder[a, b,x];
+					{a, b} = {b, r};
+					{x0, xx} = {xx, (x0 - xx*q)//ExpandAll};
+					{y0, yy} = {yy, (y0 - yy*q)//ExpandAll};
+                    
+			];
+			{x0, y0, a}
+		];
+
+In[6]:= PolynomialGCD[f,g]
+
+Out[6]= -3+7x
+
+In[7]:= PolynomialExtendedGCD[f,g,x]
+
+Out[7]= 
+
+In[8]:= {myU, myV, myGCD} = myBezoutPoly[f, g]
+{wolframGCD,{wolframU, wolframV}} = PolynomialExtendedGCD[f,g,x]
+
+Out[8]= 
+
+Out[9]= 
+
+In[10]:= FullSimplify[myGCD == f * myU + g * myV]
+
+Out[10]= True
+
+(*Функция myBezoutPoly работает корректно.*)
+
+In[13]:= normalizePoly[poly_]:= poly/Coefficient[
+poly
+, x
+, Exponent[poly, x]
+]//ExpandAll
+
+In[14]:= normalizePoly[myGCD]
+
+Out[14]= 
+
+In[15]:= normalizePoly[myGCD] == normalizePoly[wolframGCD] // FullSimplify
+
+Out[15]= True
+
+(*Результаты совпали => коэффициенты найдены верно.*)

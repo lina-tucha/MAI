@@ -1,0 +1,157 @@
+Лабораторная работа №4 
+Хренникова Ангелина 
+Вариант №7
+
+In[112]:= tasks = {
+	Sin[2*x^3]^2/x^3
+	, (x^2 - 4)*Sin[(Pi*(x^2))/6] / (x^2 - 1)
+	, Sqrt[Abs[3*x^3 + 2*x^2 - 10*x]] / (4*x)
+	, 1/2 * Log[Sqrt[x^2 + 1] / Sqrt[x^2 - 1]] - 15*x^2
+	, (x^3 - x^2 - x + 1)^(1/3) / Tan[x]
+	, 2*Log[(x - 1) / x] + 1
+	, Log[x - 1] / (x - 1)^2
+}
+
+Out[112]= 
+
+In[113]:= getVariantForNumber[number_, variationsQuo_]:=(
+	Module[{t},
+  t = Mod[number , variationsQuo];
+  If[t != 0
+    , t
+    , variationsQuo
+   ]
+	]
+)
+
+In[114]:= var = getVariantForNumber[28,Length[tasks]]
+Print["Номер вашего задания: ", var]
+
+Out[114]= 7
+
+In[116]:= f[y_] := tasks[[var]]/.x->y;
+
+In[117]:= f[x]//TraditionalForm
+
+Out[117]=
+
+In[118]:= f[-x]//TraditionalForm
+
+Out[118]=
+
+In[119]:= (*График функции*)
+Plot[
+	f[x]
+	, {x, -1, 5}
+]
+
+Out[119]= 
+
+(*Область определения функции: x > 1*)
+
+In[120]:= (*Приверка функции на четность или нечетность*)
+res1 = f[x] == f[-x] //TautologyQ
+res2 = f[x] + f[-x] == 0 //TautologyQ
+If[res1, "Функция четная", Null]
+If[res2, "Функция нечетная", Null]
+If[Not[res1||res2], "Функция прочая", Null]
+
+Out[120]= False
+
+Out[121]= False
+
+Out[124]= Функция прочая
+
+In[125]:= (*Проверка на периодичность*)
+FunctionPeriod[f[x], x]
+(*Функция непериодическая*)
+
+Out[125]= 0
+
+In[126]:= (*Точки пересечения с осями координат*)
+sols = Solve[f[x]==0, x]
+points = {x, 0}/.sols
+
+Out[126]= {{x->2}}
+
+Out[127]= {{2,0}}
+
+In[128]:= g1 = Plot[f[x], {x, -1, 5}, PlotStyle->Blue];
+g2 = ListPlot[points, PlotStyle->{Red, PointSize[Large]}];
+Show[{g1, g2}]
+
+Out[130]= 
+
+In[131]:= (*Промежутки возрастания и убывания*)
+df = D[f[x], x]
+sols = Solve[df == 0, x]
+extremum = {x} /. sols
+f[extremum]
+f'[N[extremum]-0.1]
+f'[N[extremum]+0.1]
+
+Out[131]= 
+
+Out[132]= {{x->1+Sqrt(е)}}
+
+Out[133]= {{1+Sqrt(е)}}
+
+Out[134]= {{1/(2е)}}
+
+Out[135]= {{0.0336883}}
+
+Out[136]= {{-0.0220228}}
+
+In[137]:= Show[Graphics[Line[{{-1, 0}, {5, 0}}]],
+    Graphics[{PointSize[0.03], Point[{1, 0}, VertexColors->Red]}],
+    Graphics[Text[1, {1, -0.2}]],
+    Graphics[Text["Не существует", {0,0.2}]],
+    Graphics[Text["Возрастает", {1.6,0.2}]],
+    Graphics[Text["Убывает", {3.35,0.2}]],
+    Graphics[{PointSize[0.03], Point[{2, 0}, VertexColors->Red]}],
+    Graphics[Text[Sqrt[e]+1, {2, -0.2}]]
+    ]
+
+Out[137]= 
+
+In[138]:= (*Промежутки знакапостоянства*)
+f[2]
+f[1.9]
+f[2.1]
+
+Out[138]= 0
+
+Out[139]= -0.130075
+
+Out[140]= 0.0787687
+
+In[141]:= Show[
+    Graphics[Line[{{-1, 0}, {4, 0}}]],
+    Graphics[{PointSize[0.03], Point[{1, 0}, VertexColors->Red]}],
+    Graphics[Text[1, {1, -0.2}]],
+    Graphics[Text["Не существует", {0,0.2}]],
+    Graphics[{PointSize[0.03], Point[{2, 0}, VertexColors->Red]}],
+    Graphics[Text[2, {2, -0.2}]],
+    Graphics[Text[Style["-", FontSize -> Scaled[0.1]], {1.5, 0.3}]],
+    Graphics[Text[Style["+", FontSize -> Scaled[0.1]], {3, 0.3}]]
+]
+
+Out[141]= 
+
+In[142]:= (*Точки экстремума + асимптоты*)
+Limit[f[x], x->Infinity]
+Limit[f[x], x->-Infinity]
+Limit[f[x] / x, x->Infinity]
+Limit[f[x], x->1]
+
+Out[142]= 0
+
+Out[143]= 0
+
+Out[144]= 0
+
+Out[145]= -\[Infinity]
+
+In[146]:= Plot[f[x], {x, 0.5, 5}, GridLines->{{1,0},{0,0}}, GridLinesStyle->Directive[Thick, Red]]
+
+Out[146]= 
