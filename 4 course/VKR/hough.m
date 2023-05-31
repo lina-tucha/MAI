@@ -205,18 +205,6 @@ for i=1:a(2)
 end
 hold off;
 
-% function Circle(centery, centerx, reference, r)
-% radius = reference + r;
-% angle = 0:0.01:2*pi; 
-% d_x = radius*cos(angle);
-% d_y = radius*sin(angle);
-% plot(centery+d_y, centerx+d_x, 'r');
-% end
-% 
-% function [result] = Gradient(input)
-%     dy=imfilter(double(input),[1; -1],'same');
-%     dx=imfilter(double(input),[1  -1],'same');
-%     result = atan2(dy,dx)*180/pi();
-% end
+
 
 
