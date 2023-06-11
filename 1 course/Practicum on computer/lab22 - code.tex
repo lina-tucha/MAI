@@ -1,0 +1,108 @@
+\documentclass[a5paper]{book}
+\usepackage[utf8]{inputenc}
+\usepackage[english,russian]{babel}
+\usepackage{mathtext}
+\usepackage{indentfirst}
+\usepackage{amsmath}
+\usepackage{textcomp}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{fancyhdr}
+\usepackage[papersize={126mm, 195mm}]{geometry}
+\setcounter{page}{287}
+\oddsidemargin=-2.4cm
+\evensidemargin=-2.4cm
+\topmargin=-73pt
+\textheight=520pt
+\textwidth=10.8cm
+\headsep=0.3cm
+
+
+\pagestyle{fancy}
+\fancyhead[LO]{\scriptsize \S ~4]}
+\fancyhead[RE]{\scriptsize [ГЛ. V}
+\fancyhead[CE]{\scriptsize МЕРА, ИЗМЕРИМЫЕ ФУНКЦИИ, ИНТЕГРАЛ}
+\fancyhead[CO]{\scriptsize ИЗМЕРИМЫЕ ФУНКЦИИ}
+\fancyhead[LE,RO]{\thepage}
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\setlength\partopsep{-\topsep}
+\addtolength\partopsep{-\parskip}
+\addtolength\partopsep{0.1cm}
+
+\begin{document}
+\linespread{0.8}
+\noindent \normalsize По условию, $\mu(X\backslash A)=0$. Функция $f(x)$ измерима на $A$, а так \linebreak
+как на множестве меры нуль, очевидно, вообще всякая функция \linebreak 
+измерима, то $f(x)$ измерима на $X\backslash A$, следовательно, она из- \linebreak
+мерима и на множестве $X$.\newline 
+\footnotesize \indent У\,п\,р\,а\,ж\,н\,е\,н\,и\,е\,. Пусть последовательность измеримых функций $f_{n}(x)$ \linebreak
+сходится почти всюду к некоторой предельной функии $f(x)$. Доказать, что \linebreak
+последовательность $f_{n}(x)$ сходится почти всюду к $g(x)$ в том и только том \linebreak 
+случае, если $g(x)$ эквивалентна $f(x)$. \newline 
+\normalsize \indent \textbf{5. Теорема Егорова.}\ В 1911 г. Д. Ф. Егоровым была дока- \linebreak
+зана следующая важная теорма, устанавливающая связь ме- \linebreak 
+жду понятиями сходимости почти всюду и равномерной сходи- \linebreak 
+мости.\newline
+\indent Т\,е\,о\,р\,е\,м\,а\, 6\,. \textit{Пусть Е "--- множество конечной меры и после- \linebreak
+довательность измеримых функций $f_{n}(x)$ сходится на Е почти \linebreak 
+всюду к $f(x)$. Тогда для любого $\delta>0$ существует такое изме- \linebreak 
+римое множество $E_{\delta}\subset E$, что}\ \newline
+\indent 1) $\mu(E_{\delta})>\mu(E)-\delta$; \newline
+\indent 2) \textit{На множестве $E_{\delta}$ последовательность $f_{n}(x)$ сходится к \linebreak 
+$f(x)$ равномерно.}\ \newline 
+\indent Д\,о\,к\,а\,з\,а\,т\,е\,л\,ь\,с\,т\,в\,о\,. Согласно теореме 4' функция $f(x)$ из- \linebreak 
+измерима. Положим  
+\begin{equation*} E^m_{n}=\bigcap_{i\geqslant n} \lbrace x:|f_{i}(x)-f(x)|<1/m\rbrace.\end{equation*}
+Таким образом, $E^m_{n}$ при фиксированных $m$ и $n$ означает мно- \linebreak 
+жество всех тех точек $x$, для которых 
+\begin{equation*} f_{i}(x)-f(x)|<1/m\end{equation*}
+при всех $i\geqslant n$. Пусть 
+\begin{equation*} E^m=\bigcup^\infty_{n=1}E^m_{n}.\end{equation*}
+Из определения множеств $E^m_{n}$ ясно, что при фиксированном m \linebreak
+\begin{equation*} E^m_{1}\subset E^m_{2}\subset ...\subset E^m_{n}\subset ...\end{equation*}
+В силу того, что $\sigma$-аддитивная мера непрерывна, для любого \linebreak 
+$m$ и любого $\delta>0$ найдется такое $n_{0}(m)$, что 
+\begin{equation*} \mu(E^m\backslash E^m_{n_{0}(m)})<\delta\backslash 2^m\end{equation*}
+Положим
+\begin{equation*} E_{\delta}=\bigcap^\infty_{m=1}E^m_{n_{0}(m)},\end{equation*}
+и покажем, что такое построение $E_{\delta}$ удовлетворяет требованиям \linebreak
+теоремы. \newline 
+\begin{equation*} \end{equation*}
+\indent Докажем сначала, что на $E_{\delta}$ последовательность ${f_{i}(x)}$ схо- \linebreak 
+дится равномерно к функции $f(x)$. Это сразу вытекает из того,\linebreak 
+что если $x\in E_{\delta}$, то для любого $m$ 
+\begin{equation*} |f_{i}(x)-f(x)|<1/m\ npu\ i>n_{0}(m).\end{equation*}
+Оценим теперь меру множества $E\backslash E_{\delta}$. Для этого заметим, что \linebreak 
+при всяком $m$ имеем $\mu(E\backslash E^m)=0$. Действительно, если $x_{0}\in$ \linebreak 
+$\in E\backslash E^m$, то существует сколь угодно большие значения $i$, \linebreak 
+при которых 
+\begin{equation*} |f_{i}(x_{0})-f(x_{0})|\geqslant1/m,\end{equation*}
+т. е. последовательность ${f_{n}(x)}$ в точке $x_{0}$ не сходится к $f(x)$. \linebreak 
+Так как, по условию, ${f_{n}(x)}$ сходится к $f(x)$ почти всюду, то \newline 
+\begin{equation*} \mu(E\backslash E^m)=0.\end{equation*}
+Отсюда следует, что 
+\begin{equation*} \mu(E\backslash E^m_{n_{0}(m)})=\mu(E^m\backslash E^m_{n_{0}(m)})<\delta\backslash 2^m.\end{equation*}
+Поэтому \newline 
+\begin{equation*} \mu(E\backslash E_{\delta})=\mu(E \backslash \bigcap^\infty_{m=1} E^m_{n_{0}(m)})=\mu(\bigcup^\infty_{m=1}(E\backslash E^m_{n_{0}(m)})\leqslant\end{equation*}
+\begin{equation*}\leqslant E^m_{n_{0}(m)})<\sum^\infty_{m=1}\frac{\delta}{2^m}=\delta\end{equation*}
+Теорема доказана.\newline
+\indent \textbf{6. Сходимость по мере.}\ \newline
+\indent О\,п\,р\,е\,д\,е\,л\,е\,н\,и\,е\, 4. Говорят, что последовательность измери- \linebreak 
+мых функций $f_{n}(x)$ \textit{сходится по мере}\ к функции $f(x)$, если для \linebreak 
+любого $\sigma>0$  
+\begin{equation*}\lim \limits_{n \to \infty} \mu \lbrace x:f_{n}(x)-f(x)|\geqslant\sigma\rbrace =0.\end{equation*}
+\indent Нижеследующие теоремы 7 и 8 устанавливают связь между \linebreak 
+понятиями сходимости почти всюду и сходимости по мере. Как \linebreak 
+и в предыдущем пункте рассматриваемая мера предполагается \linebreak 
+конечной. \newline 
+\indent Т\,е\,о\,р\,е\,м\,а\, 7\,. \textit{Если последовательность измеримых функций \linebreak 
+${f_{n}(x)}$ сходится почти всюду к некоторой функции $f(x)$, то она \linebreak 
+сходится к той же самой предельной функции $f(x)$ по мере.}\ \linebreak 
+\indent Д\,о\,к\,а\,з\,а\,т\,е\,л\,ь\,с\,т\,в\,о\,. Из теоремы 4' следует, что предель- \linebreak 
+ная функция $f(x)$ измерима. Пусть $A$ "--- то множество (меры \linebreak 
+нуль), на котором $f_{n}(x)$ не стремится к $f(x)$. Пусть, далее,\linebreak
+\begin{equation*}E_{k}(\sigma)={x:|f_{k}(x)-f(x)|\geqslant\sigma},\end{equation*}
+\begin{equation*}R_{n}(\sigma)=\bigcup^\infty_{k=n}E_{k}(\sigma),\,\,\,\,\,\,\,\,\,M=\bigcap^\infty_{n=1}R_{n}(\sigma).\end{equation*}
+\end{document}
+
